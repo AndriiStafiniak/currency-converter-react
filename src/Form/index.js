@@ -1,5 +1,7 @@
-import "./style.css";
 import { useState } from "react";
+import "./style.css";
+
+
 
 const Form = () => {
    const [amount, setAmount] = useState("");
@@ -7,17 +9,9 @@ const Form = () => {
    const [result, setResult] = useState(null);
 
    const currentExchangeRates = {
-      EUR: 4.62,
-      USD: 4.21,
+      EUR: 4.47,
+      USD: 4.11,
       GBT: 5.21,
-   };
-   const onCurrencyChange = (event) => {
-      setCurrency(event.target.value);
-      setResult(null);
-   };
-   const onAmountChange = (event) => {
-      setAmount(event.target.value);
-      setResult(null);
    };
 
    const calculateResult = (currency, amount) => {
@@ -31,6 +25,17 @@ const Form = () => {
       return null;
    };
 
+   const onCurrencyChange = ({ target }) => {
+      setCurrency(target.value);
+      setResult(null);
+   };
+
+   const onAmountChange = ({ target }) => {
+      setAmount(target.value);
+      setResult(null);
+   };
+
+
    const onFormSubmit = (event) => {
       event.preventDefault();
       let calculatedResult = calculateResult(currency, amount);
@@ -38,6 +43,7 @@ const Form = () => {
    };
 
    return (
+
       <form onSubmit={onFormSubmit} className="form">
          <fieldset className="form__fieldset">
             <legend className="form__legend">Currency converter</legend>
@@ -54,25 +60,29 @@ const Form = () => {
                   placeholder="Kwota w PLN"
                   required />
             </label>
+
             <label>
                Wybierz walutę:
                <select
-                  className="js-currency"
+                  className="form__select"
                   value={currency}
                   onChange={onCurrencyChange}
                >
-                  <option value="GBT">GBT</option>
-                  <option value="EUR">EUR</option>
-                  <option value="USD">USD</option>
+                  <option value="GBT">Funt Brytyjski</option>
+                  <option value="EUR">Euro</option>
+                  <option value="USD">Dolar Amerykański</option>
                </select>
             </label>
+
             <button
                type="submit"
                className="form__button">Oblicz</button>
-            {updateResultText()}
+            <div className="form__result">{"Wynik:"} {updateResultText()} </div>
          </fieldset>
+
       </form>
    );
 };
+
 
 export default Form;

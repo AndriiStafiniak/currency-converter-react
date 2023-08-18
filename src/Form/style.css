@@ -49,19 +49,16 @@
    color: hsl(0, 0%, 95%);
 }
 
-.form__paragraph {
-   display: inline-block;
-   text-align: center;
-   background-color: hsl(0, 0%, 15%);
-   color: hsl(208, 100%, 93%);
-   width: 100%;
-   border-radius: 20px;
-   padding: 10px;
-}
+.form__result {
+   border-radius: 10px;
 
-.form__span {
-   margin: 0 8px;
+   text-align: center;
+   background-color: hsl(0, 0%, 20%);
+   color: hsl(208, 100%, 93%);
+
+   padding: 5px;
+   margin: 10px;
    text-decoration: solid;
    font-size: 24px;
-   color: hsl(0, 0%, 100%);
+
 }

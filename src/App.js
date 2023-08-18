@@ -1,24 +1,12 @@
-import Form from "./Form"
+
+import Form from "./Form";
 
 
-
-
-function App() {
-
-
-
-
-
-
-
-
-
-
+const App = () => {
   return (
-    <>
-      <Form />
-    </>
+    <Form />
   );
-}
+};
 
 export default App;
+
