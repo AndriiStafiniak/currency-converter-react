@@ -1,11 +1,26 @@
 # Currency Converter
+## Demo
+https://andriistafiniak.github.io/currency-converter-react/
 
 ## Discription
+The currency converter enables you to effortlessly convert Polish Złoty (PLN) into Euro (EUR), United States Dollar (USD), and Great British Pound (GBP).
 
-## Demo
 
 ## How it work 
 ![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ245OGd4MDU2cXB1NGk4YnU1c2YwMXpjdmdlazZuNHUyYmJ2ZzBreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f4tVKuBiGOlfoG9kKs/giphy.gif)
+
+## Used Technologies
+
+- HTML
+- CSS
+- Grid
+- JavaScript
+- GIT
+- React
+- BEM Convention
+- Normalize
+- Markdown
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
