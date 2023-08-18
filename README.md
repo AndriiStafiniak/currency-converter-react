@@ -4,7 +4,8 @@
 
 ## Demo
 
-## How it work
+## How it work 
+![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ245OGd4MDU2cXB1NGk4YnU1c2YwMXpjdmdlazZuNHUyYmJ2ZzBreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f4tVKuBiGOlfoG9kKs/giphy.gif)
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
