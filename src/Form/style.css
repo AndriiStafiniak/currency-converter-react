@@ -37,6 +37,7 @@
    color: hsl(208, 100%, 97%);
    border-radius: 20px;
    padding: 7px;
+   cursor: pointer;
 }
 
 .form__button:hover {
