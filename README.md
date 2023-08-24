@@ -13,7 +13,6 @@ The currency converter enables you to effortlessly convert Polish Złoty (PLN) i
 
 - HTML
 - CSS
-- Grid
 - JavaScript
 - GIT
 - React
