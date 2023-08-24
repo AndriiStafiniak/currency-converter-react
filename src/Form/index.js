@@ -5,17 +5,31 @@ import "./style.css";
 
 const Form = () => {
    const [amount, setAmount] = useState("");
-   const [currency, setCurrency] = useState("EUR");
    const [result, setResult] = useState(null);
+   const [currency, setCurrency] = useState("EUR");
 
-   const currentExchangeRates = {
-      EUR: 4.47,
-      USD: 4.11,
-      GBT: 5.21,
-   };
+   const currencies = [
+      {
+         short: "EUR",
+         label: "Euro",
+         value: 4.47,
+      },
+      {
+         short: "USD",
+         label: "Dolar Amerykański",
+         value: 4.11,
+      },
+      {
+         short: "GBT",
+         label: "Funt Brytyjski",
+         value: 5.21,
+      },
+   ];
 
-   const calculateResult = (currency, amount) => {
-      return amount / currentExchangeRates[currency];
+   const calculateResult = (amount, currencies) => {
+      const selectedCurrencyValue =
+         currencies.find(({ short }) => short === currency).value;
+      return amount / selectedCurrencyValue;
    };
 
    const updateResultText = () => {
@@ -35,10 +49,9 @@ const Form = () => {
       setResult(null);
    };
 
-
    const onFormSubmit = (event) => {
       event.preventDefault();
-      let calculatedResult = calculateResult(currency, amount);
+      let calculatedResult = calculateResult(amount, currencies);
       setResult(calculatedResult);
    };
 
@@ -65,12 +78,17 @@ const Form = () => {
                Wybierz walutę:
                <select
                   className="form__select"
-                  value={currency}
                   onChange={onCurrencyChange}
                >
-                  <option value="GBT">Funt Brytyjski</option>
-                  <option value="EUR">Euro</option>
-                  <option value="USD">Dolar Amerykański</option>
+                  {
+                     currencies.map
+                        (
+                           currency =>
+                              <option value={currency.short} key={currency.short}>
+                                 {currency.label}
+                              </option>
+                        )
+                  }
                </select>
             </label>
 
