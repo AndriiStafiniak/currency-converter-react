@@ -1,12 +1,18 @@
 
 import Form from "./Form";
+import Clock from "./Clock";
 
 
 const App = () => {
   return (
-    <Form />
+    <>
+      <Form>
+        <Clock />
+      </Form>
+    </>
   );
 };
+
 
 export default App;
 

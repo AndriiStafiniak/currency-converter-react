@@ -3,7 +3,8 @@ import "./style.css";
 
 
 
-const Form = () => {
+
+const Form = (props) => {
    const [amount, setAmount] = useState("");
    const [result, setResult] = useState(null);
    const [currency, setCurrency] = useState("EUR");
@@ -58,8 +59,11 @@ const Form = () => {
    return (
 
       <form onSubmit={onFormSubmit} className="form">
+
          <fieldset className="form__fieldset">
             <legend className="form__legend">Currency converter</legend>
+            {props.children}
+
             <label className="form__label">
                Wpisz kwotę w PLN:
                <input
