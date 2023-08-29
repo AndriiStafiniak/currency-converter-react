@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "./style.css";
 
-
-
-
 const Form = (props) => {
    const [amount, setAmount] = useState("");
    const [result, setResult] = useState(null);
@@ -57,7 +54,6 @@ const Form = (props) => {
    };
 
    return (
-
       <form onSubmit={onFormSubmit} className="form">
 
          <fieldset className="form__fieldset">
@@ -101,10 +97,8 @@ const Form = (props) => {
                className="form__button">Oblicz</button>
             <div className="form__result">{"Wynik:"} {updateResultText()} </div>
          </fieldset>
-
       </form>
    );
 };
-
 
 export default Form;

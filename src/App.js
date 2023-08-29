@@ -1,7 +1,5 @@
-
 import Form from "./Form";
 import Clock from "./Clock";
-
 
 const App = () => {
   return (
@@ -12,7 +10,6 @@ const App = () => {
     </>
   );
 };
-
 
 export default App;
 

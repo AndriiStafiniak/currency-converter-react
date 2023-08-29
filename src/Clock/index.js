@@ -11,7 +11,6 @@ const timeData = (date) =>
       month: "long",
    });
 
-
 const Clock = () => {
    const [date, setDate] = useState(new Date())
 
@@ -30,7 +29,6 @@ const Clock = () => {
          Dzisaj jest {" "}
          {timeData(date)}
       </div>
-
    )
 };
 
