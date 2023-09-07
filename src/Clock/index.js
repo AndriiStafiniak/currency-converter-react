@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import "./style.css";
+import { StyledClock } from "./styled";
+import useClock from "./useClock";
 
 const timeData = (date) =>
    date.toLocaleString(undefined, {
@@ -12,23 +12,13 @@ const timeData = (date) =>
    });
 
 const Clock = () => {
-   const [date, setDate] = useState(new Date())
-
-   useEffect(() => {
-      const intervalId = setInterval(() => {
-         setDate(new Date());
-
-      }, 1000);
-      return () => {
-         clearInterval(intervalId);
-      }
-   }, []);
+   const date = useClock();
 
    return (
-      <div className="clock">
+      <StyledClock>
          Dzisaj jest {" "}
          {timeData(date)}
-      </div>
+      </StyledClock>
    )
 };
 
