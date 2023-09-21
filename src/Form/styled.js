@@ -38,10 +38,15 @@ export const StyledButton = styled.button`
    color: hsl(208, 100%, 97%);
    border-radius: 20px;
    padding: 7px;
+   border:none;
+   margin: 10px;
+   text-align: center;
+   
    cursor: pointer;
       &:hover{
          background-color: hsl(0, 0%, 35%);
          color: hsl(0, 0%, 70%);
+         scale: 1.05;
       }
       &:active{
          background-color: hsl(0, 0%, 50%);

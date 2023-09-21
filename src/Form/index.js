@@ -90,7 +90,6 @@ const Form = (props) => {
                   }
                </StyledSelect>
             </label>
-
             <StyledButton
                type="submit"
             > Oblicz
