@@ -1,66 +1,67 @@
 import styled from "styled-components"
 
 export const StyledForm = styled.form`
-   max-width: 600px;
+   width:100%;
    font-size: 18px;
 `;
 
 export const StyledFieldset = styled.fieldset`
-   border: 2px solid hsl(0, 0%, 30%);
-   border-radius: 20px;
+   border: 3px solid #ccc ;
    margin: 50px;
 `;
 
 export const StyledLegend = styled.legend`
    font-size: 24px;
-   color: hsl(0, 80%, 10%);
+   color:${({ theme }) => theme.colors.rebel};
 `;
 
 export const StyledInput = styled.input`
-   border-radius: 20px;
    padding: 5px 10px;
-   background-color: hsl(0, 0%, 90%);
-   width: 100%;
-   margin: 10px 0;   
+   /* background-color: hsl(0, 0%, 90%); */
+   width: 90%;
+   margin: 15px; 
 `;
 
 export const StyledSelect = styled.select`
-   border-radius: 20px;
+   
    padding: 5px 10px;
-   background-color: hsl(0, 0%, 90%);
-   width: 100%;
-   margin: 10px 0;
+   /* background-color: hsl(0, 0%, 90%); */
+   width: 90%;
+   margin: 15px;
+   
 `;
 
 export const StyledButton = styled.button`
-   width: 100%;
-   background-color: hsl(0, 0%, 25%);
-   color: hsl(208, 100%, 97%);
-   border-radius: 20px;
+   width: 90%;
+   background-color: ${({ theme }) => theme.colors.grey};
+   color: ${({ theme }) => theme.colors.white};
    padding: 7px;
    border:none;
-   margin: 10px 0px;
-   text-align: center;
+   margin: 15px;
    
    cursor: pointer;
+   transition: 0.5s;
       &:hover{
-         background-color: hsl(0, 0%, 35%);
-         color: hsl(0, 0%, 70%);
+         filter: brightness(120%);
+         color: ${({ theme }) => theme.colors.white};
          scale: 1.05;
       }
       &:active{
-         background-color: hsl(0, 0%, 50%);
-         color: hsl(0, 0%, 95%);
+         filter: brightness(140%);
+         ${({ theme }) => theme.colors.concrete};
       }
 `;
 
 export const StyledResult = styled.div`
-   border-radius: 10px;
+   
    text-align: center;
-   background-color: hsl(0, 0%, 20%);
-   color: hsl(208, 100%, 93%);
+   background-color: ${({ theme }) => theme.colors.grey};
+   color: ${({ theme }) => theme.colors.white};
    padding: 5px;
-   margin: 10px;
+   margin: 10px 0;
    text-decoration: solid;
    font-size: 24px;
+   width: 90%;
+   margin: 15px;
+   
 `;
