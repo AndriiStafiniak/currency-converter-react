@@ -1,5 +1,5 @@
 import { StyledClock } from "./styled";
-import useClock from "./useClock";
+import useDate from "./useDate";
 
 const timeData = (date) =>
    date.toLocaleString(undefined, {
@@ -12,7 +12,7 @@ const timeData = (date) =>
    });
 
 const Clock = () => {
-   const date = useClock();
+   const date = useDate();
 
    return (
       <StyledClock>
