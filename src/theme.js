@@ -7,7 +7,7 @@ export const theme = {
       grey: "rgb(64, 64, 64)",
       nobel: "rgb(179, 179, 179)",
       concrete: "rgb(242, 242, 242)",
-
-
+      pampas: "#FBFBF9",
+      silver: "#ccc"
    }
 };

@@ -1,13 +1,15 @@
 import styled from "styled-components"
 
 export const StyledForm = styled.form`
-   width:100%;
+   margin: 10px;
+   padding: 10px;
    font-size: 18px;
+   background-color:${({ theme }) => theme.colors.pampas};
 `;
 
 export const StyledFieldset = styled.fieldset`
-   border: 3px solid #ccc ;
-   margin: 50px;
+   border: 3px solid ${({ theme }) => theme.colors.silver};
+   margin: 20px;
 `;
 
 export const StyledLegend = styled.legend`
@@ -16,19 +18,15 @@ export const StyledLegend = styled.legend`
 `;
 
 export const StyledInput = styled.input`
-   padding: 5px 10px;
-   /* background-color: hsl(0, 0%, 90%); */
+   padding: 5px;
    width: 90%;
-   margin: 15px; 
+   margin: 10px; 
 `;
 
 export const StyledSelect = styled.select`
-   
-   padding: 5px 10px;
-   /* background-color: hsl(0, 0%, 90%); */
+   padding: 5px 5px;
    width: 90%;
    margin: 15px;
-   
 `;
 
 export const StyledButton = styled.button`
@@ -42,12 +40,12 @@ export const StyledButton = styled.button`
    cursor: pointer;
    transition: 0.5s;
       &:hover{
-         filter: brightness(120%);
+         filter: brightness(140%);
          color: ${({ theme }) => theme.colors.white};
          scale: 1.05;
       }
       &:active{
-         filter: brightness(140%);
+         filter: brightness(160%);
          ${({ theme }) => theme.colors.concrete};
       }
 `;
