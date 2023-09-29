@@ -10,11 +10,15 @@ import {
    StyledSelect
 } from './styled';
 
+import { StyledError, StyledLoading } from "../UserMessages/styled";
+
+
+
 const Form = (props) => {
    const [amount, setAmount] = useState('');
    const [result, setResult] = useState(null);
    const [currency, setCurrency] = useState('EUR');
-
+   const [showResult, setShowResult] = useState(false);
 
    const apiUrl = 'https://api.exchangerate.host/latest';
    const baseCurrency = 'PLN';
@@ -45,11 +49,13 @@ const Form = (props) => {
    const onCurrencyChange = ({ target }) => {
       setCurrency(target.value);
       setResult(null);
+      setShowResult(false);
    };
 
    const onAmountChange = ({ target }) => {
       setAmount(target.value);
       setResult(null);
+      setShowResult(false);
    };
 
    const onFormSubmit = (event) => {
@@ -58,13 +64,24 @@ const Form = (props) => {
          const selectedCurrencyValue = data.rates[currency];
          const calculatedResult = amount / selectedCurrencyValue;
          setResult(calculatedResult);
+         setShowResult(true);
       }
    };
 
    return (
-      <div>
+      <StyledForm onSubmit={onFormSubmit}>
+         {loading && (
+            <StyledLoading>
+               Pobieranie kursów walut
+            </StyledLoading>
+         )}
+         {error && (
+            <StyledError>
+               Ups, coś poszło nie tak. Sprawdź połączenie z internetem i odśwież stronę. Jeśli nadal nie działa, to wina leży po naszej stronie i już pracujemy nad rozwiązaniem. Spróbuj później! Przepraszamy!
+            </StyledError>
+         )}
 
-         <StyledForm onSubmit={onFormSubmit}>
+         {!loading && !error && (
             <StyledFieldset>
                <StyledLegend>Currency converter</StyledLegend>
                {props.children}
@@ -95,10 +112,11 @@ const Form = (props) => {
                   </StyledSelect>
                </label>
                <StyledButton type="submit">Oblicz</StyledButton>
-               <StyledResult>Wynik: {updateResultText()}</StyledResult>
+               {showResult && (<StyledResult>Wynik: {updateResultText()}</StyledResult>)}
+
             </StyledFieldset>
-         </StyledForm>
-      </div>
+         )}
+      </StyledForm>
    );
 };
 
