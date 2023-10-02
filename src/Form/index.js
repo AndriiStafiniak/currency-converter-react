@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import useFetchData from './useFetchData';
 import {
    StyledButton,
@@ -20,12 +20,17 @@ const Form = (props) => {
    const [currency, setCurrency] = useState('EUR');
    const [showResult, setShowResult] = useState(false);
 
-   const apiUrl = 'https://api.exchangerate.host/latest';
-   const baseCurrency = 'PLN';
 
-   const { data, loading, error } = useFetchData(apiUrl, baseCurrency);
+   const apiKey = "5fc70fb0ff2999b3ede163b75aff5a99"
+   const url = `http://data.fixer.io/api/latest?access_key=${apiKey}&base=EUR`
 
-   const currencies = data ? Object.keys(data.rates) : [];
+
+
+   const { data, loading, error } = useFetchData(url);
+
+
+   const currencies = useMemo(() => data && data.rates ? Object.keys(data.rates) : [], [data]);
+
 
    useEffect(() => {
       if (data && currencies.length > 0) {
@@ -39,7 +44,7 @@ const Form = (props) => {
       if (result != null) {
          return (
             <p>
-               {amount} PLN = {result.toFixed(2)} {currency}
+               {amount} EUR = {result.toFixed(2)} {currency}
             </p>
          );
       }
@@ -87,7 +92,7 @@ const Form = (props) => {
                {props.children}
 
                <label>
-                  Wpisz kwotę w PLN:
+                  Wpisz kwotę w EURO:
                   <StyledInput
                      value={amount}
                      onChange={onAmountChange}
