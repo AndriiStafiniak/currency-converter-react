@@ -22,11 +22,11 @@ const Form = (props) => {
 
 
    const apiKey = "5fc70fb0ff2999b3ede163b75aff5a99"
-   const url = `http://data.fixer.io/api/latest?access_key=${apiKey}&base=EUR`
+   const apiUrl = `http://data.fixer.io/api/latest?access_key=${apiKey}`
 
 
 
-   const { data, loading, error } = useFetchData(url);
+   const { data, loading, error } = useFetchData(apiUrl);
 
 
    const currencies = useMemo(() => data && data.rates ? Object.keys(data.rates) : [], [data]);
@@ -101,7 +101,7 @@ const Form = (props) => {
                      name="euro"
                      min="1"
                      step="any"
-                     placeholder="Kwota w PLN"
+                     placeholder="Kwota w EURO"
                      required
                   />
                </label>

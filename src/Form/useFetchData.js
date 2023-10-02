@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const useFetchData = (url) => {
+const useFetchData = (apiUrl) => {
    const [data, setData] = useState(null);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(null);
+   const url = '/api/latest';
 
 
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await fetch(`${url}`);
+            const response = await fetch(`${apiUrl}`);
             if (!response.ok) {
                throw new Error(response.statusText);
             }
@@ -27,7 +28,7 @@ const useFetchData = (url) => {
       }, 2000);
 
       return () => clearTimeout(timeout);
-   }, [url]);
+   }, [apiUrl]);
 
 
    return { data, loading, error };
