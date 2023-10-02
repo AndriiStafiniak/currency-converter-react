@@ -8,6 +8,8 @@ export const theme = {
       nobel: "rgb(179, 179, 179)",
       concrete: "rgb(242, 242, 242)",
       pampas: "#FBFBF9",
-      silver: "#ccc"
+      silver: "#ccc",
+      red: "#F41A25",
+      green: "#94ED61"
    }
 };
