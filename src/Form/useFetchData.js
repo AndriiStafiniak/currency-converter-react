@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 
-const useFetchData = (url, baseCurrency) => {
+const useFetchData = (url) => {
    const [data, setData] = useState(null);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState(null);
 
+
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await fetch(`${url}?base=${baseCurrency}`);
+            const response = await fetch(`${url}`);
             if (!response.ok) {
-               throw new Error(response.text);
+               throw new Error(response.statusText);
             }
             const result = await response.json();
             setData(result);
@@ -26,7 +27,7 @@ const useFetchData = (url, baseCurrency) => {
       }, 2000);
 
       return () => clearTimeout(timeout);
-   }, [url, baseCurrency]);
+   }, [url]);
 
 
    return { data, loading, error };
