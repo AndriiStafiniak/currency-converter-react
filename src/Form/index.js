@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
-import useFetchData from './useFetchData';
+import { useState } from "react";
+import { useFetchData } from './useFetchData';
 import {
    StyledButton,
    StyledFieldset,
@@ -7,118 +7,80 @@ import {
    StyledInput,
    StyledLegend,
    StyledResult,
-   StyledSelect
+   StyledSelect,
 } from './styled';
 
 import { StyledError, StyledLoading } from "../UserMessages/styled";
 
-
-
 const Form = (props) => {
-   const [amount, setAmount] = useState('');
+   const { ratesData } = useFetchData();
    const [result, setResult] = useState(null);
-   const [currency, setCurrency] = useState('EUR');
-   const [showResult, setShowResult] = useState(false);
+   const [currency, setCurrency] = useState("EUR");
+   const [amount, setAmount] = useState('');
+
+   const calculatedResult = (amount, currency) => {
 
 
-   const apiKey = "5fc70fb0ff2999b3ede163b75aff5a99"
-   const apiUrl = `http://data.fixer.io/api/latest?access_key=${apiKey}`
+      const rate = ratesData.data.data[currency].value;
 
+      console.log('Amount:', amount);
+      console.log('Rate:', rate);
 
+      console.log(ratesData.data.data[currency])
 
-   const { data, loading, error } = useFetchData(apiUrl);
-
-
-   const currencies = useMemo(() => data && data.rates ? Object.keys(data.rates) : [], [data]);
-
-
-   useEffect(() => {
-      if (data && currencies.length > 0) {
-         const selectedCurrencyValue = data.rates[currency];
-         const calculatedResult = amount * selectedCurrencyValue;
-         setResult(calculatedResult);
-      }
-   }, [data, amount, currency, currencies]);
-
-   const updateResultText = () => {
-      if (result != null) {
-         return (
-            <p>
-               {amount} EUR = {result.toFixed(2)} {currency}
-            </p>
-         );
-      }
-      return null;
-   };
-
-   const onCurrencyChange = ({ target }) => {
-      setCurrency(target.value);
-      setResult(null);
-      setShowResult(false);
-   };
-
-   const onAmountChange = ({ target }) => {
-      setAmount(target.value);
-      setResult(null);
-      setShowResult(false);
-   };
+      setResult({
+         sourceAmount: +amount,
+         targetAmount: amount * rate,
+         currency,
+      });
+      console.log(ratesData.targetAmount)
+   }
 
    const onFormSubmit = (event) => {
       event.preventDefault();
-      if (data && currencies.length > 0) {
-         const selectedCurrencyValue = data.rates[currency];
-         const calculatedResult = amount / selectedCurrencyValue;
-         setResult(calculatedResult);
-         setShowResult(true);
-      }
+      calculatedResult(amount, currency)
    };
 
    return (
       <StyledForm onSubmit={onFormSubmit}>
-         {loading && (
+         {ratesData.state === "loading" ? (
             <StyledLoading>
                Pobieranie kursów walut
             </StyledLoading>
-         )}
-         {error && (
+         ) : ratesData.state === "error" ? (
             <StyledError>
-               Ups, coś poszło nie tak. Sprawdź połączenie z internetem i odśwież stronę. Jeśli nadal nie działa, to wina leży po naszej stronie i już pracujemy nad rozwiązaniem. Spróbuj później! Przepraszamy!
+               Ups, coś poszło nie tak...
             </StyledError>
-         )}
-
-         {!loading && !error && (
+         ) : (
             <StyledFieldset>
                <StyledLegend>Currency converter</StyledLegend>
                {props.children}
-
                <label>
-                  Wpisz kwotę w EURO:
+                  Wpisz kwotę w USD:
                   <StyledInput
                      value={amount}
-                     onChange={onAmountChange}
+                     onChange={({ target }) => setAmount(target.value)}
                      className="form__input"
                      type="number"
-                     name="euro"
                      min="1"
                      step="any"
-                     placeholder="Kwota w EURO"
+                     placeholder="Kwota w USD"
                      required
                   />
                </label>
-
                <label>
                   Wybierz walutę:
-                  <StyledSelect onChange={onCurrencyChange}>
-                     {currencies.map((currency) => (
-                        <option value={currency} key={currency}>
+                  <StyledSelect value={currency} onChange={(event) => setCurrency(event.target.value)}>
+
+                     {Object.keys(ratesData.data.data).map(((currency) => (
+                        <option key={currency} value={currency}>
                            {currency}
                         </option>
-                     ))}
+                     )))}
                   </StyledSelect>
                </label>
                <StyledButton type="submit">Oblicz</StyledButton>
-               {showResult && (<StyledResult>Wynik: {updateResultText()}</StyledResult>)}
-
+               <StyledResult> Wynik: {result ? `${amount} USD = ${result.targetAmount.toFixed(2)} ${currency}` : "Brak wyniku"}</StyledResult>
             </StyledFieldset>
          )}
       </StyledForm>
