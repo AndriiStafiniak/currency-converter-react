@@ -7,7 +7,7 @@ The currency converter enables you to effortlessly convert Polish Złoty (PLN) i
 
 
 ## How it work 
-![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ245OGd4MDU2cXB1NGk4YnU1c2YwMXpjdmdlazZuNHUyYmJ2ZzBreCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f4tVKuBiGOlfoG9kKs/giphy.gif)
+![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWx3YjV6aGN4cmJwdDV0eTQwenR1Z2Q0YjJnZXBnazQ4dnZrazQ3ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zpvx8dXlq6mpOCbcJA/giphy.gif)
 
 ## Used Technologies
 
