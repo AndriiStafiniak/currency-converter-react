@@ -8,9 +8,11 @@ import {
    StyledLegend,
    StyledResult,
    StyledSelect,
+   StyledError,
+   StyledLoading,
 } from './styled';
 
-import { StyledError, StyledLoading } from "../UserMessages/styled";
+
 
 const Form = (props) => {
    const { ratesData } = useFetchData();
@@ -35,11 +37,11 @@ const Form = (props) => {
 
    return (
       <StyledForm onSubmit={onFormSubmit}>
-         {ratesData.state === "loading" ? (
+         {ratesData.status === "loading" ? (
             <StyledLoading>
                Pobieranie kursów walut
             </StyledLoading>
-         ) : ratesData.state === "error" ? (
+         ) : ratesData.status === "error" ? (
             <StyledError>
                Ups, coś poszło nie tak...
             </StyledError>

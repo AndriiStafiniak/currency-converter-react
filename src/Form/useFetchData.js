@@ -2,32 +2,31 @@ import { useState, useEffect } from 'react'
 
 export const useFetchData = () => {
    const [ratesData, setRatesData] = useState({
-      state: "loading",
+      status: "loading",
       data: null,
    });
+
+   const urlApi = "https://api.currencyapi.com/v3/latest?apikey=cur_live_W4XgneKvCr75wX0qJDc8IGwz5j5Eg4wstpdf6tDQ"
 
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await fetch(`https://api.currencyapi.com/v3/latest?apikey=cur_live_W4XgneKvCr75wX0qJDc8IGwz5j5Eg4wstpdf6tDQ`);
+            const response = await fetch(urlApi);
 
             if (!response.ok) {
-               throw new Error(response.statusText);
+               throw new Error(response.status.Text);
             }
 
             const data = await response.json();
 
-            console.log('Pobrane dane:', data);
-
             setRatesData({
-               state: "success",
+               status: "success",
                data,
             });
 
          } catch (error) {
-            console.error('Error fetching data:', error);
             setRatesData({
-               state: "error",
+               status: "error",
                data: null,
             });
          }
