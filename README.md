@@ -3,7 +3,7 @@
 https://andriistafiniak.github.io/currency-converter-react/
 
 ## Discription
-The currency converter enables you to effortlessly convert Polish Złoty (PLN) into Euro (EUR), United States Dollar (USD), and Great British Pound (GBP).
+The currency converter allows you to easily input a value in United States Dollar (USD) and convert it to various currencies. The exchange rates for these currencies are retrieved dynamically through an API.
 
 
 ## How it work 

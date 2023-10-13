@@ -19,22 +19,14 @@ const Form = (props) => {
    const [amount, setAmount] = useState('');
 
    const calculatedResult = (amount, currency) => {
-
-
       const rate = ratesData.data.data[currency].value;
-
-      console.log('Amount:', amount);
-      console.log('Rate:', rate);
-
-      console.log(ratesData.data.data[currency])
 
       setResult({
          sourceAmount: +amount,
          targetAmount: amount * rate,
          currency,
       });
-      console.log(ratesData.targetAmount)
-   }
+   };
 
    const onFormSubmit = (event) => {
       event.preventDefault();
