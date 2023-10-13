@@ -1,7 +1,14 @@
 import styled from "styled-components"
 
 export const StyledForm = styled.form`
-   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 50vh;
+   width: 80%;
+   max-width: 600px;
+   margin: 0 auto;
    padding: 10px;
    font-size: 18px;
    background-color:${({ theme }) => theme.colors.pampas};
@@ -62,4 +69,17 @@ export const StyledResult = styled.div`
    width: 90%;
    margin: 15px;
    
+`;
+
+export const StyledError = styled.p`
+   color: ${({ theme }) => theme.colors.red};
+   text-align: center;
+   font-size: 30px;
+   
+`;
+
+export const StyledLoading = styled.p`
+   color: ${({ theme }) => theme.colors.green};
+   text-align: center;
+   font-size: 30px;
 `;
