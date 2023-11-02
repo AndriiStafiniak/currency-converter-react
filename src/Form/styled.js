@@ -1,21 +1,20 @@
 import styled from "styled-components"
 
 export const StyledForm = styled.form`
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   width: 80%;
-   max-width: 600px;
-   margin: 0 auto;
-   padding: 10px;
-   font-size: 18px;
-   background-color:${({ theme }) => theme.colors.pampas};
-`;
+    margin: 0 6px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 12px 6px ${({ theme }) => theme.colors.grey}; 
+    background: #eee;
+  `;
+
+
 
 export const StyledFieldset = styled.fieldset`
-   border: 3px solid ${({ theme }) => theme.colors.silver};
-   margin: 20px;
+   display: grid;
+   grid-template-columns: 1fr;
+   padding: 12px;
+   border: none;
 `;
 
 export const StyledLegend = styled.legend`
@@ -24,31 +23,34 @@ export const StyledLegend = styled.legend`
 `;
 
 export const StyledInput = styled.input`
-   padding: 5px;
-   width: 90%;
-   margin: 10px; 
+  width:85%;
+  padding: 6px;
+  margin: 6px;
+  border-radius: 6px;
 `;
 
 export const StyledSelect = styled.select`
-   padding: 5px 5px;
-   width: 90%;
-   margin: 15px;
+ width: 85%;
+ padding: 6px;
+ margin: 6px;
+ border-radius: 6px;
 `;
 
 export const StyledButton = styled.button`
-   width: 90%;
    background-color: ${({ theme }) => theme.colors.grey};
    color: ${({ theme }) => theme.colors.white};
-   padding: 7px;
+   width: 85%;
    border:none;
-   margin: 15px;
-   
+   margin: 6px;
+   padding: 6px;
+   border-radius: 6px;
    cursor: pointer;
    transition: 0.5s;
+   
       &:hover{
          filter: brightness(140%);
          color: ${({ theme }) => theme.colors.white};
-         scale: 1.05;
+         scale: 1.04;
       }
       &:active{
          filter: brightness(160%);
@@ -57,25 +59,22 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledResult = styled.div`
-   
    text-align: center;
    background-color: ${({ theme }) => theme.colors.grey};
    color: ${({ theme }) => theme.colors.white};
-   padding: 5px;
-   margin: 10px 0;
+   padding: 6px;
    text-decoration: solid;
-   font-size: 24px;
-   width: 90%;
-   margin: 15px;
-   
+   font-weight: bold;
+   width: 85%;
+   margin:6px;
+   border-radius: 6px;
 `;
 
 export const StyledError = styled.p`
    color: ${({ theme }) => theme.colors.red};
    text-align: center;
    font-size: 30px;
-   
-`;
+   `;
 
 export const StyledLoading = styled.p`
    color: ${({ theme }) => theme.colors.green};

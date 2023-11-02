@@ -16,7 +16,7 @@ const Clock = () => {
 
    return (
       <StyledClock>
-         Dzisaj jest {" "}
+         Dzisaj jest{" "}
          {timeData(date)}
       </StyledClock>
    )

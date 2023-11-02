@@ -6,7 +6,7 @@ export const useFetchData = () => {
       data: null,
    });
 
-   const urlApi = "https://api.currencyapi.com/v3/latest?apikey=cur_live_W4XgneKvCr75wX0qJDc8IGwz5j5Eg4wstpdf6tDQ"
+   const urlApi = "https://api.currencyapi.com/v3/latest?apikey=cur_live_VYi3mgJWZafnRA0AlDLuLnzh1GDgerYjmsJDgoyX"
 
    useEffect(() => {
       const fetchData = async () => {
