@@ -25,14 +25,14 @@ export const StyledLegend = styled.legend`
 export const StyledInput = styled.input`
   width:85%;
   padding: 6px;
-  margin: 6px;
+  margin: 8px;
   border-radius: 6px;
 `;
 
 export const StyledSelect = styled.select`
  width: 85%;
  padding: 6px;
- margin: 6px;
+ margin: 8px;
  border-radius: 6px;
 `;
 
@@ -41,12 +41,12 @@ export const StyledButton = styled.button`
    color: ${({ theme }) => theme.colors.white};
    width: 85%;
    border:none;
-   margin: 6px;
-   padding: 6px;
+   margin: 8px;
+   padding: 8px;
    border-radius: 6px;
    cursor: pointer;
    transition: 0.5s;
-   
+
       &:hover{
          filter: brightness(140%);
          color: ${({ theme }) => theme.colors.white};
@@ -62,11 +62,10 @@ export const StyledResult = styled.div`
    text-align: center;
    background-color: ${({ theme }) => theme.colors.grey};
    color: ${({ theme }) => theme.colors.white};
-   padding: 6px;
-   text-decoration: solid;
+   padding: 8px;
    font-weight: bold;
    width: 85%;
-   margin:6px;
+   margin:8px;
    border-radius: 6px;
 `;
 
