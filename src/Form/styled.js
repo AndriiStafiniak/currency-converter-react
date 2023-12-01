@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
    box-shadow: 0 0 12px 6px ${({ theme }) => theme.colors.grey}; 
    background: #eee;
    margin: 180px auto;
-   max-width: 1360px;
+   max-width: 990px;
    display: flex;
    gap: 24px;
    flex-direction: column;

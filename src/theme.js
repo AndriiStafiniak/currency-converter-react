@@ -12,7 +12,7 @@ export const theme = {
       background: "#E7ECF3",
    },
    breakpoints: {
-      mobile: "767px",
-      maxWidth: "1400px",
+      mobile: "450px",
+      maxWidth: "990px",
    }
 };
