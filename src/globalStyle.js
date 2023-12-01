@@ -9,5 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: "lato", sans-serif;
+  background-color:${({ theme }) => theme.colors.background}; 
 }
 `;

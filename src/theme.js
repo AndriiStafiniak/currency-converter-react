@@ -5,11 +5,14 @@ export const theme = {
       rebel: "rgb(46, 5, 5)",
       white: "rgb(240, 248, 255)",
       grey: "rgb(64, 64, 64)",
-      nobel: "rgb(179, 179, 179)",
       concrete: "rgb(242, 242, 242)",
-      pampas: "#FBFBF9",
-      silver: "#ccc",
+      silver: "#629BF8",
       red: "#F41A25",
-      green: "#94ED61"
+      green: "#94ED61",
+      background: "#E7ECF3",
+   },
+   breakpoints: {
+      mobile: "767px",
+      maxWidth: "1400px",
    }
 };

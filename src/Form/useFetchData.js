@@ -32,7 +32,7 @@ export const useFetchData = () => {
          }
       };
 
-      setTimeout(fetchData, 2000);
+      setTimeout(fetchData, 3000);
    }, []);
 
    return { ratesData };
